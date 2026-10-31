@@ -1,0 +1,102 @@
+{
+  "source_file": "default of credit card clients.xls",
+  "sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+  "rows": 30000,
+  "features": [
+    "LIMIT_BAL",
+    "SEX",
+    "EDUCATION",
+    "MARRIAGE",
+    "AGE",
+    "PAY_0",
+    "PAY_2",
+    "PAY_3",
+    "PAY_4",
+    "PAY_5",
+    "PAY_6",
+    "BILL_AMT1",
+    "BILL_AMT2",
+    "BILL_AMT3",
+    "BILL_AMT4",
+    "BILL_AMT5",
+    "BILL_AMT6",
+    "PAY_AMT1",
+    "PAY_AMT2",
+    "PAY_AMT3",
+    "PAY_AMT4",
+    "PAY_AMT5",
+    "PAY_AMT6"
+  ],
+  "target": "default payment next month",
+  "outer_split": [
+    {
+      "fold": 0,
+      "rows": 5996,
+      "defaults": 1316,
+      "rate": 0.21947965310206805,
+      "groups": 5987,
+      "role": "locked_test"
+    },
+    {
+      "fold": 1,
+      "rows": 6000,
+      "defaults": 1360,
+      "rate": 0.22666666666666666,
+      "groups": 5991,
+      "role": "development"
+    },
+    {
+      "fold": 2,
+      "rows": 5998,
+      "defaults": 1266,
+      "rate": 0.2110703567855952,
+      "groups": 5987,
+      "role": "development"
+    },
+    {
+      "fold": 3,
+      "rows": 6003,
+      "defaults": 1353,
+      "rate": 0.22538730634682658,
+      "groups": 5990,
+      "role": "development"
+    },
+    {
+      "fold": 4,
+      "rows": 6003,
+      "defaults": 1341,
+      "rate": 0.22338830584707647,
+      "groups": 5989,
+      "role": "development"
+    }
+  ],
+  "development_rows": 24004,
+  "locked_test_rows": 5996,
+  "null_permutations_per_fold": 20,
+  "split_manifest": "t04_split_manifest.csv",
+  "null_model_fits": 100,
+  "actual_model_fits": 5,
+  "permutation": "shuffle labels among training rows separately within each development fold",
+  "importance": "LightGBM gain importance normalized to sum to one within each fitted model",
+  "categorical_handling": "pandas categorical vocabularies formed from each training fold only; negative source codes retained as category levels",
+  "p_value": "(1 + number of null shares >= mean actual share across folds)/(1 + null fits)",
+  "split_group": "exact tuple of 23 predictor values; IDs and target excluded",
+  "seeds": {
+    "outer": 42,
+    "development": 43,
+    "null_base": 20261030
+  },
+  "versions": {
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "scikit_learn": "1.7.2",
+    "lightgbm": "4.7.0",
+    "xlrd": "2.0.1"
+  },
+  "caveats": [
+    "Importance and permutation p-values are model-dependent screening evidence, not causal effects.",
+    "Only 5 actual fold fits and the configured null fit count are used.",
+    "The locked outer test fold was not fit, scored, or used for feature selection.",
+    "This null comparison is approximate because null labels are shuffled within each fold's training rows."
+  ]
+}

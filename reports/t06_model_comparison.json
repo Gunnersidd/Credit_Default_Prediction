@@ -1,0 +1,154 @@
+{
+  "models": {
+    "logistic": "T05: unweighted LogisticRegression(C=1.0, solver=lbfgs, max_iter=2000); fold-fitted one-hot + StandardScaler",
+    "lightgbm": "T04: unweighted LGBMClassifier(n_estimators=400, learning_rate=0.04, num_leaves=15, min_child_samples=40, colsample_bytree=0.9, subsample=0.9, reg_lambda=1.0, importance_type=gain)",
+    "xgboost": "unweighted XGBClassifier(n_estimators=600, max_depth=4, learning_rate=0.03, min_child_weight=10, subsample=0.9, colsample_bytree=0.9, reg_lambda=1.0, tree_method=hist); fold-fitted one-hot for categorical features"
+  },
+  "pooled_development_oof": {
+    "logistic": {
+      "roc_auc": 0.7654753101845815,
+      "average_precision": 0.5306333687692308,
+      "brier_score": 0.13744952389509638,
+      "log_loss": 0.43955514474151464,
+      "accuracy_at_0_5": 0.8193634394267622,
+      "precision_at_0_5": 0.6759656652360515,
+      "recall_at_0_5": 0.35526315789473684,
+      "f1_at_0_5": 0.4657466732380483,
+      "predicted_positive_rate_at_0_5": 0.11648058656890518,
+      "brier_skill_vs_prevalence": 0.20323731744909224,
+      "ece_10_equal_frequency_bins": 0.014201793163170329,
+      "mean_fit_seconds_per_fold": 0.09392041659448296,
+      "total_fit_seconds": 0.4696020829724148,
+      "convergence_warnings": 0
+    },
+    "lightgbm": {
+      "roc_auc": 0.7828869651247581,
+      "average_precision": 0.5546679199017865,
+      "brier_score": 0.13466546116761685,
+      "log_loss": 0.42865836063956864,
+      "accuracy_at_0_5": 0.8190301616397268,
+      "precision_at_0_5": 0.6674673987645847,
+      "recall_at_0_5": 0.3656015037593985,
+      "f1_at_0_5": 0.47243138207432595,
+      "predicted_positive_rate_at_0_5": 0.12139643392767872,
+      "brier_skill_vs_prevalence": 0.21937587671270664,
+      "ece_10_equal_frequency_bins": 0.0077276493883545565,
+      "mean_fit_seconds_per_fold": 0.599702091992367,
+      "total_fit_seconds": 2.9985104599618353,
+      "convergence_warnings": 0
+    },
+    "xgboost": {
+      "roc_auc": 0.7824231570818504,
+      "average_precision": 0.5532326040708406,
+      "brier_score": 0.13456879602274582,
+      "log_loss": 0.42854429022006874,
+      "accuracy_at_0_5": 0.8196133977670388,
+      "precision_at_0_5": 0.6730769230769231,
+      "recall_at_0_5": 0.3618421052631579,
+      "f1_at_0_5": 0.4706601466992665,
+      "predicted_positive_rate_at_0_5": 0.11914680886518914,
+      "brier_skill_vs_prevalence": 0.21993622190673867,
+      "ece_10_equal_frequency_bins": 0.008868841708129814,
+      "mean_fit_seconds_per_fold": 0.6933001582045109,
+      "total_fit_seconds": 3.466500791022554,
+      "convergence_warnings": 0
+    },
+    "prevalence_only": {
+      "development_default_rate": 0.22162972837860356,
+      "brier_score": 0.17250999187742994,
+      "log_loss": 0.5289629285311956
+    }
+  },
+  "protocol": {
+    "source_file": "default of credit card clients.xls",
+    "sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+    "rows": 30000,
+    "predictors": [
+      "LIMIT_BAL",
+      "SEX",
+      "EDUCATION",
+      "MARRIAGE",
+      "AGE",
+      "PAY_0",
+      "PAY_2",
+      "PAY_3",
+      "PAY_4",
+      "PAY_5",
+      "PAY_6",
+      "BILL_AMT1",
+      "BILL_AMT2",
+      "BILL_AMT3",
+      "BILL_AMT4",
+      "BILL_AMT5",
+      "BILL_AMT6",
+      "PAY_AMT1",
+      "PAY_AMT2",
+      "PAY_AMT3",
+      "PAY_AMT4",
+      "PAY_AMT5",
+      "PAY_AMT6"
+    ],
+    "target": "default payment next month",
+    "development_rows": 24004,
+    "locked_test_rows": 5996,
+    "outer": "StratifiedGroupKFold(5, shuffle=True, random_state=42); fold 0 locked",
+    "inner": "StratifiedGroupKFold(5, shuffle=True, random_state=43)",
+    "groups": "exact tuple of predictors, excluding ID and target",
+    "categorical": [
+      "SEX",
+      "EDUCATION",
+      "MARRIAGE",
+      "PAY_0",
+      "PAY_2",
+      "PAY_3",
+      "PAY_4",
+      "PAY_5",
+      "PAY_6"
+    ],
+    "test_fold_fitted_or_scored": false,
+    "row_level_predictions_saved": false,
+    "plots": [
+      "t04_null_importance.png",
+      "t06_roc_pr_curves.png",
+      "t06_calibration_curve.png",
+      "t06_metric_comparison.png",
+      "t06_fold_metric_differences.png"
+    ],
+    "fit_seconds": {
+      "logistic": [
+        0.11184954101918265,
+        0.08167095796670765,
+        0.10557725001126528,
+        0.0811451249755919,
+        0.08935920899966732
+      ],
+      "lightgbm": [
+        0.6560166249983013,
+        0.6082539589842781,
+        0.5923368340008892,
+        0.5773001249763183,
+        0.5646029170020483
+      ],
+      "xgboost": [
+        0.6912301669945009,
+        0.7544079580111429,
+        0.6879313749959692,
+        0.6573298330185935,
+        0.6756014580023475
+      ]
+    },
+    "versions": {
+      "numpy": "1.26.4",
+      "pandas": "2.3.3",
+      "scikit_learn": "1.7.2",
+      "lightgbm": "4.7.0",
+      "xgboost": "3.2.0"
+    }
+  },
+  "limitations": [
+    "This is one fixed-configuration comparison; it is not a hyperparameter search.",
+    "Five grouped folds on one 2005 Taiwan vintage do not establish current-market or temporal generalization.",
+    "The 0.5 threshold is a reporting convention, not a decision policy.",
+    "Fold-level differences are descriptive and do not replace a larger-sample uncertainty analysis."
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "protocol": {
+    "source_file": "default of credit card clients.xls",
+    "sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+    "development_rows": 24004,
+    "locked_test_rows": 5996,
+    "test_fold_fitted_or_scored": false,
+    "outer": "StratifiedGroupKFold(5, shuffle=True, random_state=42); fold 0 locked",
+    "inner": "StratifiedGroupKFold(5, shuffle=True, random_state=43)",
+    "group": "exact tuple of all 23 predictors; ID and target excluded",
+    "feature_families": {
+      "repayment_status": [
+        "PAY_0",
+        "PAY_2",
+        "PAY_3",
+        "PAY_4",
+        "PAY_5",
+        "PAY_6"
+      ],
+      "client_profile": [
+        "SEX",
+        "EDUCATION",
+        "MARRIAGE",
+        "AGE"
+      ],
+      "billing_amounts": [
+        "BILL_AMT1",
+        "BILL_AMT2",
+        "BILL_AMT3",
+        "BILL_AMT4",
+        "BILL_AMT5",
+        "BILL_AMT6"
+      ],
+      "payment_amounts": [
+        "PAY_AMT1",
+        "PAY_AMT2",
+        "PAY_AMT3",
+        "PAY_AMT4",
+        "PAY_AMT5",
+        "PAY_AMT6"
+      ],
+      "credit_limit": [
+        "LIMIT_BAL"
+      ]
+    },
+    "conditions": {
+      "full": [
+        "LIMIT_BAL",
+        "SEX",
+        "EDUCATION",
+        "MARRIAGE",
+        "AGE",
+        "PAY_0",
+        "PAY_2",
+        "PAY_3",
+        "PAY_4",
+        "PAY_5",
+        "PAY_6",
+        "BILL_AMT1",
+        "BILL_AMT2",
+        "BILL_AMT3",
+        "BILL_AMT4",
+        "BILL_AMT5",
+        "BILL_AMT6",
+        "PAY_AMT1",
+        "PAY_AMT2",
+        "PAY_AMT3",
+        "PAY_AMT4",
+        "PAY_AMT5",
+        "PAY_AMT6"
+      ],
+      "only_repayment_status": [
+        "PAY_0",
+        "PAY_2",
+        "PAY_3",
+        "PAY_4",
+        "PAY_5",
+        "PAY_6"
+      ],
+      "without_repayment_status": [
+        "LIMIT_BAL",
+        "SEX",
+        "EDUCATION",
+        "MARRIAGE",
+        "AGE",
+        "BILL_AMT1",
+        "BILL_AMT2",
+        "BILL_AMT3",
+        "BILL_AMT4",
+        "BILL_AMT5",
+        "BILL_AMT6",
+        "PAY_AMT1",
+        "PAY_AMT2",
+        "PAY_AMT3",
+        "PAY_AMT4",
+        "PAY_AMT5",
+        "PAY_AMT6"
+      ],
+      "only_client_profile": [
+        "SEX",
+        "EDUCATION",
+        "MARRIAGE",
+        "AGE"
+      ],
+      "without_client_profile": [
+        "LIMIT_BAL",
+        "PAY_0",
+        "PAY_2",
+        "PAY_3",
+        "PAY_4",
+        "PAY_5",
+        "PAY_6",
+        "BILL_AMT1",
+        "BILL_AMT2",
+        "BILL_AMT3",
+        "BILL_AMT4",
+        "BILL_AMT5",
+        "BILL_AMT6",
+        "PAY_AMT1",
+        "PAY_AMT2",
+        "PAY_AMT3",
+        "PAY_AMT4",
+        "PAY_AMT5",
+        "PAY_AMT6"
+      ],
+      "only_billing_amounts": [
+        "BILL_AMT1",
+        "BILL_AMT2",
+        "BILL_AMT3",
+        "BILL_AMT4",
+        "BILL_AMT5",
+        "BILL_AMT6"
+      ],
+      "without_billing_amounts": [
+        "LIMIT_BAL",
+        "SEX",
+        "EDUCATION",
+        "MARRIAGE",
+        "AGE",
+        "PAY_0",
+        "PAY_2",
+        "PAY_3",
+        "PAY_4",
+        "PAY_5",
+        "PAY_6",
+        "PAY_AMT1",
+        "PAY_AMT2",
+        "PAY_AMT3",
+        "PAY_AMT4",
+        "PAY_AMT5",
+        "PAY_AMT6"
+      ],
+      "only_payment_amounts": [
+        "PAY_AMT1",
+        "PAY_AMT2",
+        "PAY_AMT3",
+        "PAY_AMT4",
+        "PAY_AMT5",
+        "PAY_AMT6"
+      ],
+      "without_payment_amounts": [
+        "LIMIT_BAL",
+        "SEX",
+        "EDUCATION",
+        "MARRIAGE",
+        "AGE",
+        "PAY_0",
+        "PAY_2",
+        "PAY_3",
+        "PAY_4",
+        "PAY_5",
+        "PAY_6",
+        "BILL_AMT1",
+        "BILL_AMT2",
+        "BILL_AMT3",
+        "BILL_AMT4",
+        "BILL_AMT5",
+        "BILL_AMT6"
+      ],
+      "only_credit_limit": [
+        "LIMIT_BAL"
+      ],
+      "without_credit_limit": [
+        "SEX",
+        "EDUCATION",
+        "MARRIAGE",
+        "AGE",
+        "PAY_0",
+        "PAY_2",
+        "PAY_3",
+        "PAY_4",
+        "PAY_5",
+        "PAY_6",
+        "BILL_AMT1",
+        "BILL_AMT2",
+        "BILL_AMT3",
+        "BILL_AMT4",
+        "BILL_AMT5",
+        "BILL_AMT6",
+        "PAY_AMT1",
+        "PAY_AMT2",
+        "PAY_AMT3",
+        "PAY_AMT4",
+        "PAY_AMT5",
+        "PAY_AMT6"
+      ]
+    },
+    "models": {
+      "logistic": "unweighted LogisticRegression(C=1.0)",
+      "lightgbm": "fixed T04 configuration; 400 trees; unweighted"
+    },
+    "versions": {
+      "numpy": "1.26.4",
+      "pandas": "2.3.3",
+      "scikit_learn": "1.7.2",
+      "lightgbm": "4.7.0"
+    }
+  },
+  "total_fit_seconds": {
+    "logistic": 3.080812578264158,
+    "lightgbm": 31.496369830798358
+  },
+  "limitations": [
+    "Ablation measures conditional predictive contribution for these fixed models and folds, not causal contribution.",
+    "Group-only models are diagnostic; they are not expected to be deployable alternatives.",
+    "No hyperparameter tuning or outer-test scoring was performed."
+  ]
+}

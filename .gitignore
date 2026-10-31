@@ -1,0 +1,47 @@
+# Internal task planning and validation workflow
+/plan.md
+/method.md
+/checks.md
+/execution.md
+/tasks.md
+/validation_design.md
+
+# Local agent state, credentials, and generated files
+/.codex/
+/.agents/
+/.claude/
+/AGENTS.md
+/AGENTS.override.md
+/CODEX.md
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.swp
+*.swo
+*~
+.DS_Store
+**/.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# LaTeX compiler intermediates
+/reports/latex_source/build/
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.xdv
+
+# Keep README files; exclude all other Markdown
+*.md
+!README.md

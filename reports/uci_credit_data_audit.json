@@ -1,0 +1,331 @@
+{
+  "bytes": 5539328,
+  "file": "default of credit card clients.xls",
+  "limitations": [
+    "The workbook has two header rows; the code labels and human-readable field names are preserved separately.",
+    "Published code descriptions are compared literally; undocumented codes are reported, not silently recoded.",
+    "A clean local file does not establish current-market representativeness or prove model feature timing beyond the source definition."
+  ],
+  "sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+  "sheet_names": [
+    "Data"
+  ],
+  "sheets": [
+    {
+      "blank_cells_by_column": {},
+      "categorical_counts": {
+        "EDUCATION": {
+          "0.0": 14,
+          "1.0": 10585,
+          "2.0": 14030,
+          "3.0": 4917,
+          "4.0": 123,
+          "5.0": 280,
+          "6.0": 51
+        },
+        "MARRIAGE": {
+          "0.0": 54,
+          "1.0": 13659,
+          "2.0": 15964,
+          "3.0": 323
+        },
+        "PAY_0": {
+          "-1.0": 5686,
+          "-2.0": 2759,
+          "0.0": 14737,
+          "1.0": 3688,
+          "2.0": 2667,
+          "3.0": 322,
+          "4.0": 76,
+          "5.0": 26,
+          "6.0": 11,
+          "7.0": 9,
+          "8.0": 19
+        },
+        "PAY_2": {
+          "-1.0": 6050,
+          "-2.0": 3782,
+          "0.0": 15730,
+          "1.0": 28,
+          "2.0": 3927,
+          "3.0": 326,
+          "4.0": 99,
+          "5.0": 25,
+          "6.0": 12,
+          "7.0": 20,
+          "8.0": 1
+        },
+        "PAY_3": {
+          "-1.0": 5938,
+          "-2.0": 4085,
+          "0.0": 15764,
+          "1.0": 4,
+          "2.0": 3819,
+          "3.0": 240,
+          "4.0": 76,
+          "5.0": 21,
+          "6.0": 23,
+          "7.0": 27,
+          "8.0": 3
+        },
+        "PAY_4": {
+          "-1.0": 5687,
+          "-2.0": 4348,
+          "0.0": 16455,
+          "1.0": 2,
+          "2.0": 3159,
+          "3.0": 180,
+          "4.0": 69,
+          "5.0": 35,
+          "6.0": 5,
+          "7.0": 58,
+          "8.0": 2
+        },
+        "PAY_5": {
+          "-1.0": 5539,
+          "-2.0": 4546,
+          "0.0": 16947,
+          "2.0": 2626,
+          "3.0": 178,
+          "4.0": 84,
+          "5.0": 17,
+          "6.0": 4,
+          "7.0": 58,
+          "8.0": 1
+        },
+        "PAY_6": {
+          "-1.0": 5740,
+          "-2.0": 4895,
+          "0.0": 16286,
+          "2.0": 2766,
+          "3.0": 184,
+          "4.0": 49,
+          "5.0": 13,
+          "6.0": 19,
+          "7.0": 46,
+          "8.0": 2
+        },
+        "SEX": {
+          "1.0": 11888,
+          "2.0": 18112
+        }
+      },
+      "codes_outside_published_description": {
+        "EDUCATION": {
+          "0.0": 14,
+          "5.0": 280,
+          "6.0": 51
+        },
+        "MARRIAGE": {
+          "0.0": 54
+        },
+        "PAY_0": {
+          "-2.0": 2759,
+          "0.0": 14737
+        },
+        "PAY_2": {
+          "-2.0": 3782,
+          "0.0": 15730
+        },
+        "PAY_3": {
+          "-2.0": 4085,
+          "0.0": 15764
+        },
+        "PAY_4": {
+          "-2.0": 4348,
+          "0.0": 16455
+        },
+        "PAY_5": {
+          "-2.0": 4546,
+          "0.0": 16947
+        },
+        "PAY_6": {
+          "-2.0": 4895,
+          "0.0": 16286
+        },
+        "SEX": {}
+      },
+      "column_codes": [
+        "",
+        "X1",
+        "X2",
+        "X3",
+        "X4",
+        "X5",
+        "X6",
+        "X7",
+        "X8",
+        "X9",
+        "X10",
+        "X11",
+        "X12",
+        "X13",
+        "X14",
+        "X15",
+        "X16",
+        "X17",
+        "X18",
+        "X19",
+        "X20",
+        "X21",
+        "X22",
+        "X23",
+        "Y"
+      ],
+      "column_names": [
+        "ID",
+        "LIMIT_BAL",
+        "SEX",
+        "EDUCATION",
+        "MARRIAGE",
+        "AGE",
+        "PAY_0",
+        "PAY_2",
+        "PAY_3",
+        "PAY_4",
+        "PAY_5",
+        "PAY_6",
+        "BILL_AMT1",
+        "BILL_AMT2",
+        "BILL_AMT3",
+        "BILL_AMT4",
+        "BILL_AMT5",
+        "BILL_AMT6",
+        "PAY_AMT1",
+        "PAY_AMT2",
+        "PAY_AMT3",
+        "PAY_AMT4",
+        "PAY_AMT5",
+        "PAY_AMT6",
+        "default payment next month"
+      ],
+      "data_rows": 30000,
+      "duplicate_column_names": [],
+      "duplicate_feature_rows_excluding_id": 35,
+      "id_check": {
+        "duplicate_ids": 0,
+        "max_id": 30000,
+        "min_id": 1,
+        "non_integer_or_missing_ids": 0,
+        "non_null_distinct_ids": 30000
+      },
+      "numeric_ranges": {
+        "AGE": {
+          "max": 79.0,
+          "min": 21.0
+        },
+        "BILL_AMT1": {
+          "max": 964511.0,
+          "min": -165580.0
+        },
+        "BILL_AMT2": {
+          "max": 983931.0,
+          "min": -69777.0
+        },
+        "BILL_AMT3": {
+          "max": 1664089.0,
+          "min": -157264.0
+        },
+        "BILL_AMT4": {
+          "max": 891586.0,
+          "min": -170000.0
+        },
+        "BILL_AMT5": {
+          "max": 927171.0,
+          "min": -81334.0
+        },
+        "BILL_AMT6": {
+          "max": 961664.0,
+          "min": -339603.0
+        },
+        "EDUCATION": {
+          "max": 6.0,
+          "min": 0.0
+        },
+        "ID": {
+          "max": 30000.0,
+          "min": 1.0
+        },
+        "LIMIT_BAL": {
+          "max": 1000000.0,
+          "min": 10000.0
+        },
+        "MARRIAGE": {
+          "max": 3.0,
+          "min": 0.0
+        },
+        "PAY_0": {
+          "max": 8.0,
+          "min": -2.0
+        },
+        "PAY_2": {
+          "max": 8.0,
+          "min": -2.0
+        },
+        "PAY_3": {
+          "max": 8.0,
+          "min": -2.0
+        },
+        "PAY_4": {
+          "max": 8.0,
+          "min": -2.0
+        },
+        "PAY_5": {
+          "max": 8.0,
+          "min": -2.0
+        },
+        "PAY_6": {
+          "max": 8.0,
+          "min": -2.0
+        },
+        "PAY_AMT1": {
+          "max": 873552.0,
+          "min": 0.0
+        },
+        "PAY_AMT2": {
+          "max": 1684259.0,
+          "min": 0.0
+        },
+        "PAY_AMT3": {
+          "max": 896040.0,
+          "min": 0.0
+        },
+        "PAY_AMT4": {
+          "max": 621000.0,
+          "min": 0.0
+        },
+        "PAY_AMT5": {
+          "max": 426529.0,
+          "min": 0.0
+        },
+        "PAY_AMT6": {
+          "max": 528666.0,
+          "min": 0.0
+        },
+        "SEX": {
+          "max": 2.0,
+          "min": 1.0
+        },
+        "default payment next month": {
+          "max": 1.0,
+          "min": 0.0
+        }
+      },
+      "predictor_profile_groups": {
+        "excess_rows_in_repeated_profiles": 56,
+        "profiles_with_both_target_classes": 21,
+        "repeated_profile_groups": 52,
+        "rows_in_repeated_profiles": 108,
+        "unique_profiles": 29944
+      },
+      "row_width_mismatches": 0,
+      "sheet": "Data",
+      "target_counts": {
+        "0.0": 23364,
+        "1.0": 6636
+      },
+      "worksheet_columns": 25,
+      "worksheet_rows_including_headers": 30002
+    }
+  ]
+}

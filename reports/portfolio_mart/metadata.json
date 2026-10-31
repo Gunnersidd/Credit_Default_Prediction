@@ -1,0 +1,9 @@
+[
+  {
+    "source_rows":30000,
+    "unique_ids":30000,
+    "status_periods":6,
+    "status_fields":"PAY_6,PAY_5,PAY_4,PAY_3,PAY_2,PAY_0",
+    "scope":"aggregate demo outputs; source rows not exported"
+  }
+]

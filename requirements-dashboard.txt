@@ -1,0 +1,6 @@
+# Local analyst dashboard environment (Python 3.11)
+pandas==2.3.3
+xlrd==2.0.1
+duckdb==1.4.1
+gradio==6.1.0
+matplotlib==3.8.2

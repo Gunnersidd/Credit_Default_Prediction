@@ -1,0 +1,159 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.85in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\hypersetup{colorlinks=true,linkcolor=blue!55!black,urlcolor=blue!55!black}
+\setlength{\parskip}{5pt}
+\setlength{\parindent}{0pt}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Credit Portfolio Analytics}
+\rhead{Source Documentation}
+\cfoot{\thepage}
+\setlength{\headheight}{14pt}
+\lstset{basicstyle=\ttfamily\small,breaklines=true,frame=single,columns=fullflexible,showstringspaces=false}
+
+\title{Project Source Documentation\\\large Repository Map, Setup, and Reproduction Guide}
+\author{Credit Portfolio Analytics Project}
+\date{October 30, 2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\newpage
+
+\section{Purpose and scope}
+This guide explains the repository as a working analyst project rather than a folder of disconnected experiments. The primary product is a local Gradio dashboard over a DuckDB mart. The model scripts and saved validation results provide supporting evidence about the data and target. They are not production scoring software.
+
+The active dataset is UCI's Default of Credit Card Clients, licensed CC BY 4.0 with attribution. The workbook is a separate local input and is not included in this project. The study population is 30,000 Taiwan credit-card clients from 2005. See `../../data\_audit.md', `../../dataset\_decision.md', and `../../prediction\_task.md' for provenance and scope.
+
+\section{Repository map}
+\begin{longtable}{p{0.31\linewidth}p{0.62\linewidth}}
+\toprule
+Path & Responsibility \\
+\midrule
+\endhead
+`app/portfolio\_dashboard.py' & Gradio Blocks UI. Loads the workbook, prepares in-memory DuckDB tables, applies age/limit filters, and returns metric text, status charts, transition counts, and segment summaries. \\
+\url{scripts/build_portfolio_mart.py} & Command-line pipeline to validate key fields, build local DuckDB client/month tables, and export aggregate-only CSV summaries. \\
+`sql/portfolio\_mart.sql' & Human-readable DuckDB templates for portfolio metrics, positive status-code shares, and credit-limit segment summaries. \\
+\url{scripts/audit_uci_credit_data.py} & Aggregate audit of workbook shape, target, missingness, IDs, codes, and repeated profiles. \\
+\url{scripts/null_importance_lightgbm.py} & Target-permutation importance screening for the fixed LightGBM configuration. \\
+\url{scripts/logistic_baseline.py} & Fold-local logistic baseline and development OOF metrics. \\
+`scripts/compare\_models.py' & Same-fold logistic, LightGBM, and XGBoost comparison; writes aggregate metrics and plots. \\
+`scripts/feature\_ablation.py' & Predeclared feature-family only/removed ablation for logistic regression and LightGBM. \\
+`reports/portfolio\_mart/' & Aggregate-only portfolio tables and metadata. No row-level records. \\
+`reports/t04\_*, t05\_*, t06\_*, t07\_*' & Saved model evidence: importance samples/summary, metrics, calibration tables, split manifests, plots, and metadata. \\
+`plan.md', `tasks.md', `method.md', `checks.md' & Project purpose, task order, execution loop, and critic checks. \\
+`execution.md' & Chronological evidence and corrections, including superseded Home Credit data exploration. \\
+`reports/latex\_source/' & This documentation and the technical report, editable LaTeX sources, build script, and compiled PDFs. \\
+\bottomrule
+\end{longtable}
+
+\section{Environment setup}
+Use Python 3.11. The project keeps modeling and dashboard dependency manifests separate for clarity; they can be installed together in a fresh virtual environment.
+
+\begin{lstlisting}[language=bash]
+python3.11 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements-modeling.txt -r requirements-dashboard.txt
+\end{lstlisting}
+
+Pinned dashboard components are pandas 2.3.3, xlrd 2.0.1, DuckDB 1.4.1, Gradio 6.1.0, and Matplotlib 3.8.2. The modeling manifest additionally pins NumPy, scikit-learn, LightGBM, and XGBoost versions. Use a new virtual environment instead of installing these packages into a shared system Python.
+
+\section{Data placement and license}
+Download the workbook from the UCI page and retain its attribution to Yeh (2009), the UCI Machine Learning Repository, and DOI 10.24432/C55S3H. The UCI page lists CC BY 4.0; share adaptations with appropriate credit. The project does not bundle the input workbook. A local example path on the original machine was `/Volumes/Luffy/bhai/da-proj1/default of credit card clients.xls'; use your own location in commands.
+
+The original Home Credit competition dataset was audited and rejected for this independent education project because the provided competition rules limit its data to competition purposes. That audit remains historical context only; it is not the active data source. The active UCI data is the only source for the results described in this project.
+
+\section{Launch the analyst dashboard}
+From the project root, set the workbook path and start Gradio:
+
+\begin{lstlisting}[language=bash]
+export CREDIT_DATA_PATH="/path/to/default of credit card clients.xls"
+python app/portfolio_dashboard.py
+\end{lstlisting}
+
+The app binds to localhost and does not create a public share link. Enter or confirm the local workbook path, click \textbf{Load portfolio}, then use the age and credit-limit dropdowns. The filters update the KPI text, monthly code mix, August-to-September transition counts, and segment views.
+
+The code creates an in-memory DuckDB database for that app process. Status fields are normalized to six client-month rows per client. Raw status codes are preserved; the displayed positive-code share is exactly the fraction with a positive numeric code in `PAY\_0'. Non-positive values are not assigned undocumented business meanings. Use the transition display as a raw code transition table, not a cure rate.
+
+\section{Build aggregate mart tables}
+The CLI script saves aggregate tables only:
+
+\begin{lstlisting}[language=bash]
+python scripts/build_portfolio_mart.py \
+  "/path/to/default of credit card clients.xls" \
+  --output-dir reports/portfolio_mart
+\end{lstlisting}
+
+Expected outputs are `portfolio\_kpis.csv', `monthly\_status\_mix.csv', `limit\_band\_default\_rate.csv', `age\_band\_default\_rate.csv', and `metadata.json'. The script does not write client-level rows or predictions. SQL templates used to define and inspect these indicators are in `sql/portfolio\_mart.sql'.
+
+\section{Reproduce the model evidence}
+All scripts take the local workbook path as the first positional argument. Results default to `reports/'. Run from the project root in the modeling environment:
+
+\begin{lstlisting}[language=bash]
+python scripts/audit_uci_credit_data.py \
+  "/path/to/default of credit card clients.xls" \
+  --output reports/uci_credit_data_audit.json
+
+python scripts/null_importance_lightgbm.py \
+  "/path/to/default of credit card clients.xls" \
+  --output reports --permutations 20
+
+python scripts/logistic_baseline.py \
+  "/path/to/default of credit card clients.xls" --output reports
+
+python scripts/compare_models.py \
+  "/path/to/default of credit card clients.xls" --output reports
+
+python scripts/feature_ablation.py \
+  "/path/to/default of credit card clients.xls" --output reports
+\end{lstlisting}
+
+The null-importance and ablation scripts require multiple model fits. They should be run intentionally rather than on every dashboard launch. The locked outer test fold is reserved and these reported artifacts do not score it. Running scripts will replace aggregate result files with fresh outputs; retain a copy if comparing a new version.
+
+\section{How to read saved metrics}
+\begin{itemize}
+  \item \textbf{ROC AUC:} ranking quality across thresholds; 0.5 is chance ranking.
+  \item \textbf{Average precision:} precision-recall summary; interpret relative to the development prevalence of about 22.16\%.
+  \item \textbf{Brier score and log loss:} probability scores, lower is better. The saved prevalence-only comparator provides a simple reference.
+  \item \textbf{ECE:} absolute calibration gap averaged over ten equal-frequency probability bins; it depends on the binning rule.
+  \item \textbf{Precision/recall at 0.5:} threshold-specific reporting values only. No operational threshold was selected.
+  \item \textbf{Ablation deltas:} changes under specified fixed model configurations. Feature groups can be correlated; changes do not represent causal importance.
+\end{itemize}
+
+Do not describe these values as final test results, leaderboard scores, state of the art, current-market estimates, or business savings. The five grouped folds are one sample-specific validation design. Exact predictor profiles are grouped; no time dimension is available for a temporal holdout.
+
+\section{LaTeX deliverables}
+The two documents in this folder are compiled from `credit\_portfolio\_technical\_report.tex' and `project\_source\_documentation.tex'. The companion README describes the folder and build process. Rebuild from this directory:
+
+\begin{lstlisting}[language=bash]
+sh build_pdfs.sh
+\end{lstlisting}
+
+This calls `pdflatex' twice for each document. Figures are read from the parent `reports/' directory. Keep generated PDFs alongside their corresponding source; treat LaTeX files as canonical.
+
+\section{Known boundaries and maintenance}
+\begin{enumerate}
+  \item Before new results are added, update `method.md' and `checks.md', execute one task, inspect the artifacts as a critic, and record corrections in `execution.md'.
+  \item If changing dataset, licensing terms, API versions, split policy, or target, update the plan, task queue, data audit, and both reports. Recheck all quoted results against the latest artifacts.
+  \item The status code mapping and target refer to the UCI 2005 sample. If the dashboard is adapted to an operational feed, replace these definitions with approved business-owned definitions.
+  \item `reports/t04\_split\_manifest.csv' and related manifests include source IDs for reproducibility; do not publish them as aggregate-only artifacts because they contain record-level identifiers.
+\end{enumerate}
+
+\section{Primary references}
+\begin{itemize}
+  \item UCI Machine Learning Repository, \href{https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients}{Default of Credit Card Clients}; dataset citation: Yeh (2009), DOI \href{https://doi.org/10.24432/C55S3H}{10.24432/C55S3H}.
+  \item Gradio, \href{https://www.gradio.app/docs/gradio/blocks}{Blocks documentation}; DuckDB, \href{https://duckdb.org/docs/stable/clients/python/overview}{Python client documentation}; scikit-learn, \href{https://scikit-learn.org/stable/modules/cross_validation.html}{cross-validation guide}.
+\end{itemize}
+
+\end{document}

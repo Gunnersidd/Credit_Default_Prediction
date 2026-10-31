@@ -1,0 +1,986 @@
+{
+  "data_directory": "home-credit-default-risk",
+  "expected_files": [
+    "application_train.csv",
+    "application_test.csv",
+    "bureau.csv",
+    "previous_application.csv",
+    "bureau_balance.csv",
+    "POS_CASH_balance.csv",
+    "credit_card_balance.csv",
+    "installments_payments.csv",
+    "HomeCredit_columns_description.csv",
+    "sample_submission.csv"
+  ],
+  "files": [
+    {
+      "blank_cells_by_column": {
+        "AMT_ANNUITY": 12,
+        "AMT_GOODS_PRICE": 278,
+        "AMT_REQ_CREDIT_BUREAU_DAY": 41519,
+        "AMT_REQ_CREDIT_BUREAU_HOUR": 41519,
+        "AMT_REQ_CREDIT_BUREAU_MON": 41519,
+        "AMT_REQ_CREDIT_BUREAU_QRT": 41519,
+        "AMT_REQ_CREDIT_BUREAU_WEEK": 41519,
+        "AMT_REQ_CREDIT_BUREAU_YEAR": 41519,
+        "APARTMENTS_AVG": 156061,
+        "APARTMENTS_MEDI": 156061,
+        "APARTMENTS_MODE": 156061,
+        "BASEMENTAREA_AVG": 179943,
+        "BASEMENTAREA_MEDI": 179943,
+        "BASEMENTAREA_MODE": 179943,
+        "CNT_FAM_MEMBERS": 2,
+        "COMMONAREA_AVG": 214865,
+        "COMMONAREA_MEDI": 214865,
+        "COMMONAREA_MODE": 214865,
+        "DAYS_LAST_PHONE_CHANGE": 1,
+        "DEF_30_CNT_SOCIAL_CIRCLE": 1021,
+        "DEF_60_CNT_SOCIAL_CIRCLE": 1021,
+        "ELEVATORS_AVG": 163891,
+        "ELEVATORS_MEDI": 163891,
+        "ELEVATORS_MODE": 163891,
+        "EMERGENCYSTATE_MODE": 145755,
+        "ENTRANCES_AVG": 154828,
+        "ENTRANCES_MEDI": 154828,
+        "ENTRANCES_MODE": 154828,
+        "EXT_SOURCE_1": 173378,
+        "EXT_SOURCE_2": 660,
+        "EXT_SOURCE_3": 60965,
+        "FLOORSMAX_AVG": 153020,
+        "FLOORSMAX_MEDI": 153020,
+        "FLOORSMAX_MODE": 153020,
+        "FLOORSMIN_AVG": 208642,
+        "FLOORSMIN_MEDI": 208642,
+        "FLOORSMIN_MODE": 208642,
+        "FONDKAPREMONT_MODE": 210295,
+        "HOUSETYPE_MODE": 154297,
+        "LANDAREA_AVG": 182590,
+        "LANDAREA_MEDI": 182590,
+        "LANDAREA_MODE": 182590,
+        "LIVINGAPARTMENTS_AVG": 210199,
+        "LIVINGAPARTMENTS_MEDI": 210199,
+        "LIVINGAPARTMENTS_MODE": 210199,
+        "LIVINGAREA_AVG": 154350,
+        "LIVINGAREA_MEDI": 154350,
+        "LIVINGAREA_MODE": 154350,
+        "NAME_TYPE_SUITE": 1292,
+        "NONLIVINGAPARTMENTS_AVG": 213514,
+        "NONLIVINGAPARTMENTS_MEDI": 213514,
+        "NONLIVINGAPARTMENTS_MODE": 213514,
+        "NONLIVINGAREA_AVG": 169682,
+        "NONLIVINGAREA_MEDI": 169682,
+        "NONLIVINGAREA_MODE": 169682,
+        "OBS_30_CNT_SOCIAL_CIRCLE": 1021,
+        "OBS_60_CNT_SOCIAL_CIRCLE": 1021,
+        "OCCUPATION_TYPE": 96391,
+        "OWN_CAR_AGE": 202929,
+        "TOTALAREA_MODE": 148431,
+        "WALLSMATERIAL_MODE": 156341,
+        "YEARS_BEGINEXPLUATATION_AVG": 150007,
+        "YEARS_BEGINEXPLUATATION_MEDI": 150007,
+        "YEARS_BEGINEXPLUATATION_MODE": 150007,
+        "YEARS_BUILD_AVG": 204488,
+        "YEARS_BUILD_MEDI": 204488,
+        "YEARS_BUILD_MODE": 204488
+      },
+      "bytes": 166133370,
+      "columns": [
+        "SK_ID_CURR",
+        "TARGET",
+        "NAME_CONTRACT_TYPE",
+        "CODE_GENDER",
+        "FLAG_OWN_CAR",
+        "FLAG_OWN_REALTY",
+        "CNT_CHILDREN",
+        "AMT_INCOME_TOTAL",
+        "AMT_CREDIT",
+        "AMT_ANNUITY",
+        "AMT_GOODS_PRICE",
+        "NAME_TYPE_SUITE",
+        "NAME_INCOME_TYPE",
+        "NAME_EDUCATION_TYPE",
+        "NAME_FAMILY_STATUS",
+        "NAME_HOUSING_TYPE",
+        "REGION_POPULATION_RELATIVE",
+        "DAYS_BIRTH",
+        "DAYS_EMPLOYED",
+        "DAYS_REGISTRATION",
+        "DAYS_ID_PUBLISH",
+        "OWN_CAR_AGE",
+        "FLAG_MOBIL",
+        "FLAG_EMP_PHONE",
+        "FLAG_WORK_PHONE",
+        "FLAG_CONT_MOBILE",
+        "FLAG_PHONE",
+        "FLAG_EMAIL",
+        "OCCUPATION_TYPE",
+        "CNT_FAM_MEMBERS",
+        "REGION_RATING_CLIENT",
+        "REGION_RATING_CLIENT_W_CITY",
+        "WEEKDAY_APPR_PROCESS_START",
+        "HOUR_APPR_PROCESS_START",
+        "REG_REGION_NOT_LIVE_REGION",
+        "REG_REGION_NOT_WORK_REGION",
+        "LIVE_REGION_NOT_WORK_REGION",
+        "REG_CITY_NOT_LIVE_CITY",
+        "REG_CITY_NOT_WORK_CITY",
+        "LIVE_CITY_NOT_WORK_CITY",
+        "ORGANIZATION_TYPE",
+        "EXT_SOURCE_1",
+        "EXT_SOURCE_2",
+        "EXT_SOURCE_3",
+        "APARTMENTS_AVG",
+        "BASEMENTAREA_AVG",
+        "YEARS_BEGINEXPLUATATION_AVG",
+        "YEARS_BUILD_AVG",
+        "COMMONAREA_AVG",
+        "ELEVATORS_AVG",
+        "ENTRANCES_AVG",
+        "FLOORSMAX_AVG",
+        "FLOORSMIN_AVG",
+        "LANDAREA_AVG",
+        "LIVINGAPARTMENTS_AVG",
+        "LIVINGAREA_AVG",
+        "NONLIVINGAPARTMENTS_AVG",
+        "NONLIVINGAREA_AVG",
+        "APARTMENTS_MODE",
+        "BASEMENTAREA_MODE",
+        "YEARS_BEGINEXPLUATATION_MODE",
+        "YEARS_BUILD_MODE",
+        "COMMONAREA_MODE",
+        "ELEVATORS_MODE",
+        "ENTRANCES_MODE",
+        "FLOORSMAX_MODE",
+        "FLOORSMIN_MODE",
+        "LANDAREA_MODE",
+        "LIVINGAPARTMENTS_MODE",
+        "LIVINGAREA_MODE",
+        "NONLIVINGAPARTMENTS_MODE",
+        "NONLIVINGAREA_MODE",
+        "APARTMENTS_MEDI",
+        "BASEMENTAREA_MEDI",
+        "YEARS_BEGINEXPLUATATION_MEDI",
+        "YEARS_BUILD_MEDI",
+        "COMMONAREA_MEDI",
+        "ELEVATORS_MEDI",
+        "ENTRANCES_MEDI",
+        "FLOORSMAX_MEDI",
+        "FLOORSMIN_MEDI",
+        "LANDAREA_MEDI",
+        "LIVINGAPARTMENTS_MEDI",
+        "LIVINGAREA_MEDI",
+        "NONLIVINGAPARTMENTS_MEDI",
+        "NONLIVINGAREA_MEDI",
+        "FONDKAPREMONT_MODE",
+        "HOUSETYPE_MODE",
+        "TOTALAREA_MODE",
+        "WALLSMATERIAL_MODE",
+        "EMERGENCYSTATE_MODE",
+        "OBS_30_CNT_SOCIAL_CIRCLE",
+        "DEF_30_CNT_SOCIAL_CIRCLE",
+        "OBS_60_CNT_SOCIAL_CIRCLE",
+        "DEF_60_CNT_SOCIAL_CIRCLE",
+        "DAYS_LAST_PHONE_CHANGE",
+        "FLAG_DOCUMENT_2",
+        "FLAG_DOCUMENT_3",
+        "FLAG_DOCUMENT_4",
+        "FLAG_DOCUMENT_5",
+        "FLAG_DOCUMENT_6",
+        "FLAG_DOCUMENT_7",
+        "FLAG_DOCUMENT_8",
+        "FLAG_DOCUMENT_9",
+        "FLAG_DOCUMENT_10",
+        "FLAG_DOCUMENT_11",
+        "FLAG_DOCUMENT_12",
+        "FLAG_DOCUMENT_13",
+        "FLAG_DOCUMENT_14",
+        "FLAG_DOCUMENT_15",
+        "FLAG_DOCUMENT_16",
+        "FLAG_DOCUMENT_17",
+        "FLAG_DOCUMENT_18",
+        "FLAG_DOCUMENT_19",
+        "FLAG_DOCUMENT_20",
+        "FLAG_DOCUMENT_21",
+        "AMT_REQ_CREDIT_BUREAU_HOUR",
+        "AMT_REQ_CREDIT_BUREAU_DAY",
+        "AMT_REQ_CREDIT_BUREAU_WEEK",
+        "AMT_REQ_CREDIT_BUREAU_MON",
+        "AMT_REQ_CREDIT_BUREAU_QRT",
+        "AMT_REQ_CREDIT_BUREAU_YEAR"
+      ],
+      "cross_application_id_overlap": 0,
+      "dictionary_check": {
+        "columns_missing_from_data": [],
+        "columns_undocumented": [],
+        "dictionary_table": "application_{train|test}.csv",
+        "known_name_aliases_applied": [],
+        "normalized_trailing_whitespace": []
+      },
+      "duplicate_column_names": [],
+      "file": "application_train.csv",
+      "foreign_key_checks": {},
+      "key_check": {
+        "blank_key_rows": 0,
+        "candidate_key": "SK_ID_CURR",
+        "duplicate_non_null_rows": 0,
+        "non_null_distinct_values": 307511
+      },
+      "marker_cells_by_column": {
+        "CODE_GENDER": {
+          "XNA": 4
+        },
+        "NAME_FAMILY_STATUS": {
+          "Unknown": 2
+        },
+        "ORGANIZATION_TYPE": {
+          "XNA": 55374
+        }
+      },
+      "relative_time_ranges": {
+        "DAYS_BIRTH": {
+          "max": -7489.0,
+          "min": -25229.0
+        },
+        "DAYS_EMPLOYED": {
+          "max": 365243.0,
+          "min": -17912.0
+        },
+        "DAYS_ID_PUBLISH": {
+          "max": 0.0,
+          "min": -7197.0
+        },
+        "DAYS_LAST_PHONE_CHANGE": {
+          "max": 0.0,
+          "min": -4292.0
+        },
+        "DAYS_REGISTRATION": {
+          "max": 0.0,
+          "min": -24672.0
+        }
+      },
+      "rows": 307511,
+      "target_counts": {
+        "0": 282686,
+        "1": 24825
+      }
+    },
+    {
+      "blank_cells_by_column": {
+        "AMT_ANNUITY": 24,
+        "AMT_REQ_CREDIT_BUREAU_DAY": 6049,
+        "AMT_REQ_CREDIT_BUREAU_HOUR": 6049,
+        "AMT_REQ_CREDIT_BUREAU_MON": 6049,
+        "AMT_REQ_CREDIT_BUREAU_QRT": 6049,
+        "AMT_REQ_CREDIT_BUREAU_WEEK": 6049,
+        "AMT_REQ_CREDIT_BUREAU_YEAR": 6049,
+        "APARTMENTS_AVG": 23887,
+        "APARTMENTS_MEDI": 23887,
+        "APARTMENTS_MODE": 23887,
+        "BASEMENTAREA_AVG": 27641,
+        "BASEMENTAREA_MEDI": 27641,
+        "BASEMENTAREA_MODE": 27641,
+        "COMMONAREA_AVG": 33495,
+        "COMMONAREA_MEDI": 33495,
+        "COMMONAREA_MODE": 33495,
+        "DEF_30_CNT_SOCIAL_CIRCLE": 29,
+        "DEF_60_CNT_SOCIAL_CIRCLE": 29,
+        "ELEVATORS_AVG": 25189,
+        "ELEVATORS_MEDI": 25189,
+        "ELEVATORS_MODE": 25189,
+        "EMERGENCYSTATE_MODE": 22209,
+        "ENTRANCES_AVG": 23579,
+        "ENTRANCES_MEDI": 23579,
+        "ENTRANCES_MODE": 23579,
+        "EXT_SOURCE_1": 20532,
+        "EXT_SOURCE_2": 8,
+        "EXT_SOURCE_3": 8668,
+        "FLOORSMAX_AVG": 23321,
+        "FLOORSMAX_MEDI": 23321,
+        "FLOORSMAX_MODE": 23321,
+        "FLOORSMIN_AVG": 32466,
+        "FLOORSMIN_MEDI": 32466,
+        "FLOORSMIN_MODE": 32466,
+        "FONDKAPREMONT_MODE": 32797,
+        "HOUSETYPE_MODE": 23619,
+        "LANDAREA_AVG": 28254,
+        "LANDAREA_MEDI": 28254,
+        "LANDAREA_MODE": 28254,
+        "LIVINGAPARTMENTS_AVG": 32780,
+        "LIVINGAPARTMENTS_MEDI": 32780,
+        "LIVINGAPARTMENTS_MODE": 32780,
+        "LIVINGAREA_AVG": 23552,
+        "LIVINGAREA_MEDI": 23552,
+        "LIVINGAREA_MODE": 23552,
+        "NAME_TYPE_SUITE": 911,
+        "NONLIVINGAPARTMENTS_AVG": 33347,
+        "NONLIVINGAPARTMENTS_MEDI": 33347,
+        "NONLIVINGAPARTMENTS_MODE": 33347,
+        "NONLIVINGAREA_AVG": 26084,
+        "NONLIVINGAREA_MEDI": 26084,
+        "NONLIVINGAREA_MODE": 26084,
+        "OBS_30_CNT_SOCIAL_CIRCLE": 29,
+        "OBS_60_CNT_SOCIAL_CIRCLE": 29,
+        "OCCUPATION_TYPE": 15605,
+        "OWN_CAR_AGE": 32312,
+        "TOTALAREA_MODE": 22624,
+        "WALLSMATERIAL_MODE": 23893,
+        "YEARS_BEGINEXPLUATATION_AVG": 22856,
+        "YEARS_BEGINEXPLUATATION_MEDI": 22856,
+        "YEARS_BEGINEXPLUATATION_MODE": 22856,
+        "YEARS_BUILD_AVG": 31818,
+        "YEARS_BUILD_MEDI": 31818,
+        "YEARS_BUILD_MODE": 31818
+      },
+      "bytes": 26567651,
+      "columns": [
+        "SK_ID_CURR",
+        "NAME_CONTRACT_TYPE",
+        "CODE_GENDER",
+        "FLAG_OWN_CAR",
+        "FLAG_OWN_REALTY",
+        "CNT_CHILDREN",
+        "AMT_INCOME_TOTAL",
+        "AMT_CREDIT",
+        "AMT_ANNUITY",
+        "AMT_GOODS_PRICE",
+        "NAME_TYPE_SUITE",
+        "NAME_INCOME_TYPE",
+        "NAME_EDUCATION_TYPE",
+        "NAME_FAMILY_STATUS",
+        "NAME_HOUSING_TYPE",
+        "REGION_POPULATION_RELATIVE",
+        "DAYS_BIRTH",
+        "DAYS_EMPLOYED",
+        "DAYS_REGISTRATION",
+        "DAYS_ID_PUBLISH",
+        "OWN_CAR_AGE",
+        "FLAG_MOBIL",
+        "FLAG_EMP_PHONE",
+        "FLAG_WORK_PHONE",
+        "FLAG_CONT_MOBILE",
+        "FLAG_PHONE",
+        "FLAG_EMAIL",
+        "OCCUPATION_TYPE",
+        "CNT_FAM_MEMBERS",
+        "REGION_RATING_CLIENT",
+        "REGION_RATING_CLIENT_W_CITY",
+        "WEEKDAY_APPR_PROCESS_START",
+        "HOUR_APPR_PROCESS_START",
+        "REG_REGION_NOT_LIVE_REGION",
+        "REG_REGION_NOT_WORK_REGION",
+        "LIVE_REGION_NOT_WORK_REGION",
+        "REG_CITY_NOT_LIVE_CITY",
+        "REG_CITY_NOT_WORK_CITY",
+        "LIVE_CITY_NOT_WORK_CITY",
+        "ORGANIZATION_TYPE",
+        "EXT_SOURCE_1",
+        "EXT_SOURCE_2",
+        "EXT_SOURCE_3",
+        "APARTMENTS_AVG",
+        "BASEMENTAREA_AVG",
+        "YEARS_BEGINEXPLUATATION_AVG",
+        "YEARS_BUILD_AVG",
+        "COMMONAREA_AVG",
+        "ELEVATORS_AVG",
+        "ENTRANCES_AVG",
+        "FLOORSMAX_AVG",
+        "FLOORSMIN_AVG",
+        "LANDAREA_AVG",
+        "LIVINGAPARTMENTS_AVG",
+        "LIVINGAREA_AVG",
+        "NONLIVINGAPARTMENTS_AVG",
+        "NONLIVINGAREA_AVG",
+        "APARTMENTS_MODE",
+        "BASEMENTAREA_MODE",
+        "YEARS_BEGINEXPLUATATION_MODE",
+        "YEARS_BUILD_MODE",
+        "COMMONAREA_MODE",
+        "ELEVATORS_MODE",
+        "ENTRANCES_MODE",
+        "FLOORSMAX_MODE",
+        "FLOORSMIN_MODE",
+        "LANDAREA_MODE",
+        "LIVINGAPARTMENTS_MODE",
+        "LIVINGAREA_MODE",
+        "NONLIVINGAPARTMENTS_MODE",
+        "NONLIVINGAREA_MODE",
+        "APARTMENTS_MEDI",
+        "BASEMENTAREA_MEDI",
+        "YEARS_BEGINEXPLUATATION_MEDI",
+        "YEARS_BUILD_MEDI",
+        "COMMONAREA_MEDI",
+        "ELEVATORS_MEDI",
+        "ENTRANCES_MEDI",
+        "FLOORSMAX_MEDI",
+        "FLOORSMIN_MEDI",
+        "LANDAREA_MEDI",
+        "LIVINGAPARTMENTS_MEDI",
+        "LIVINGAREA_MEDI",
+        "NONLIVINGAPARTMENTS_MEDI",
+        "NONLIVINGAREA_MEDI",
+        "FONDKAPREMONT_MODE",
+        "HOUSETYPE_MODE",
+        "TOTALAREA_MODE",
+        "WALLSMATERIAL_MODE",
+        "EMERGENCYSTATE_MODE",
+        "OBS_30_CNT_SOCIAL_CIRCLE",
+        "DEF_30_CNT_SOCIAL_CIRCLE",
+        "OBS_60_CNT_SOCIAL_CIRCLE",
+        "DEF_60_CNT_SOCIAL_CIRCLE",
+        "DAYS_LAST_PHONE_CHANGE",
+        "FLAG_DOCUMENT_2",
+        "FLAG_DOCUMENT_3",
+        "FLAG_DOCUMENT_4",
+        "FLAG_DOCUMENT_5",
+        "FLAG_DOCUMENT_6",
+        "FLAG_DOCUMENT_7",
+        "FLAG_DOCUMENT_8",
+        "FLAG_DOCUMENT_9",
+        "FLAG_DOCUMENT_10",
+        "FLAG_DOCUMENT_11",
+        "FLAG_DOCUMENT_12",
+        "FLAG_DOCUMENT_13",
+        "FLAG_DOCUMENT_14",
+        "FLAG_DOCUMENT_15",
+        "FLAG_DOCUMENT_16",
+        "FLAG_DOCUMENT_17",
+        "FLAG_DOCUMENT_18",
+        "FLAG_DOCUMENT_19",
+        "FLAG_DOCUMENT_20",
+        "FLAG_DOCUMENT_21",
+        "AMT_REQ_CREDIT_BUREAU_HOUR",
+        "AMT_REQ_CREDIT_BUREAU_DAY",
+        "AMT_REQ_CREDIT_BUREAU_WEEK",
+        "AMT_REQ_CREDIT_BUREAU_MON",
+        "AMT_REQ_CREDIT_BUREAU_QRT",
+        "AMT_REQ_CREDIT_BUREAU_YEAR"
+      ],
+      "cross_application_id_overlap": 0,
+      "dictionary_check": {
+        "columns_missing_from_data": [],
+        "columns_undocumented": [],
+        "dictionary_table": "application_{train|test}.csv",
+        "known_name_aliases_applied": [],
+        "normalized_trailing_whitespace": []
+      },
+      "duplicate_column_names": [],
+      "file": "application_test.csv",
+      "foreign_key_checks": {},
+      "key_check": {
+        "blank_key_rows": 0,
+        "candidate_key": "SK_ID_CURR",
+        "duplicate_non_null_rows": 0,
+        "non_null_distinct_values": 48744
+      },
+      "marker_cells_by_column": {
+        "ORGANIZATION_TYPE": {
+          "XNA": 9274
+        }
+      },
+      "relative_time_ranges": {
+        "DAYS_BIRTH": {
+          "max": -7338.0,
+          "min": -25195.0
+        },
+        "DAYS_EMPLOYED": {
+          "max": 365243.0,
+          "min": -17463.0
+        },
+        "DAYS_ID_PUBLISH": {
+          "max": 0.0,
+          "min": -6348.0
+        },
+        "DAYS_LAST_PHONE_CHANGE": {
+          "max": 0.0,
+          "min": -4361.0
+        },
+        "DAYS_REGISTRATION": {
+          "max": 0.0,
+          "min": -23722.0
+        }
+      },
+      "rows": 48744,
+      "target_counts": null
+    },
+    {
+      "blank_cells_by_column": {
+        "AMT_ANNUITY": 1226791,
+        "AMT_CREDIT_MAX_OVERDUE": 1124488,
+        "AMT_CREDIT_SUM": 13,
+        "AMT_CREDIT_SUM_DEBT": 257669,
+        "AMT_CREDIT_SUM_LIMIT": 591780,
+        "DAYS_CREDIT_ENDDATE": 105553,
+        "DAYS_ENDDATE_FACT": 633653
+      },
+      "bytes": 170016717,
+      "columns": [
+        "SK_ID_CURR",
+        "SK_ID_BUREAU",
+        "CREDIT_ACTIVE",
+        "CREDIT_CURRENCY",
+        "DAYS_CREDIT",
+        "CREDIT_DAY_OVERDUE",
+        "DAYS_CREDIT_ENDDATE",
+        "DAYS_ENDDATE_FACT",
+        "AMT_CREDIT_MAX_OVERDUE",
+        "CNT_CREDIT_PROLONG",
+        "AMT_CREDIT_SUM",
+        "AMT_CREDIT_SUM_DEBT",
+        "AMT_CREDIT_SUM_LIMIT",
+        "AMT_CREDIT_SUM_OVERDUE",
+        "CREDIT_TYPE",
+        "DAYS_CREDIT_UPDATE",
+        "AMT_ANNUITY"
+      ],
+      "cross_application_id_overlap": 0,
+      "dictionary_check": {
+        "columns_missing_from_data": [],
+        "columns_undocumented": [],
+        "dictionary_table": "bureau.csv",
+        "known_name_aliases_applied": [
+          {
+            "dictionary_name": "SK_BUREAU_ID",
+            "file_name": "SK_ID_BUREAU"
+          }
+        ],
+        "normalized_trailing_whitespace": []
+      },
+      "duplicate_column_names": [],
+      "file": "bureau.csv",
+      "foreign_key_checks": {
+        "SK_ID_CURR": {}
+      },
+      "key_check": {
+        "blank_key_rows": 0,
+        "candidate_key": "SK_ID_BUREAU",
+        "duplicate_non_null_rows": 0,
+        "non_null_distinct_values": 1716428
+      },
+      "marker_cells_by_column": {},
+      "relative_time_ranges": {
+        "DAYS_CREDIT": {
+          "max": 0.0,
+          "min": -2922.0
+        },
+        "DAYS_CREDIT_ENDDATE": {
+          "max": 31199.0,
+          "min": -42060.0
+        },
+        "DAYS_CREDIT_UPDATE": {
+          "max": 372.0,
+          "min": -41947.0
+        },
+        "DAYS_ENDDATE_FACT": {
+          "max": 0.0,
+          "min": -42023.0
+        }
+      },
+      "rows": 1716428,
+      "target_counts": null
+    },
+    {
+      "blank_cells_by_column": {
+        "AMT_ANNUITY": 372235,
+        "AMT_CREDIT": 1,
+        "AMT_DOWN_PAYMENT": 895844,
+        "AMT_GOODS_PRICE": 385515,
+        "CNT_PAYMENT": 372230,
+        "DAYS_FIRST_DRAWING": 673065,
+        "DAYS_FIRST_DUE": 673065,
+        "DAYS_LAST_DUE": 673065,
+        "DAYS_LAST_DUE_1ST_VERSION": 673065,
+        "DAYS_TERMINATION": 673065,
+        "NAME_TYPE_SUITE": 820405,
+        "NFLAG_INSURED_ON_APPROVAL": 673065,
+        "PRODUCT_COMBINATION": 346,
+        "RATE_DOWN_PAYMENT": 895844,
+        "RATE_INTEREST_PRIMARY": 1664263,
+        "RATE_INTEREST_PRIVILEGED": 1664263
+      },
+      "bytes": 404973293,
+      "columns": [
+        "SK_ID_PREV",
+        "SK_ID_CURR",
+        "NAME_CONTRACT_TYPE",
+        "AMT_ANNUITY",
+        "AMT_APPLICATION",
+        "AMT_CREDIT",
+        "AMT_DOWN_PAYMENT",
+        "AMT_GOODS_PRICE",
+        "WEEKDAY_APPR_PROCESS_START",
+        "HOUR_APPR_PROCESS_START",
+        "FLAG_LAST_APPL_PER_CONTRACT",
+        "NFLAG_LAST_APPL_IN_DAY",
+        "RATE_DOWN_PAYMENT",
+        "RATE_INTEREST_PRIMARY",
+        "RATE_INTEREST_PRIVILEGED",
+        "NAME_CASH_LOAN_PURPOSE",
+        "NAME_CONTRACT_STATUS",
+        "DAYS_DECISION",
+        "NAME_PAYMENT_TYPE",
+        "CODE_REJECT_REASON",
+        "NAME_TYPE_SUITE",
+        "NAME_CLIENT_TYPE",
+        "NAME_GOODS_CATEGORY",
+        "NAME_PORTFOLIO",
+        "NAME_PRODUCT_TYPE",
+        "CHANNEL_TYPE",
+        "SELLERPLACE_AREA",
+        "NAME_SELLER_INDUSTRY",
+        "CNT_PAYMENT",
+        "NAME_YIELD_GROUP",
+        "PRODUCT_COMBINATION",
+        "DAYS_FIRST_DRAWING",
+        "DAYS_FIRST_DUE",
+        "DAYS_LAST_DUE_1ST_VERSION",
+        "DAYS_LAST_DUE",
+        "DAYS_TERMINATION",
+        "NFLAG_INSURED_ON_APPROVAL"
+      ],
+      "cross_application_id_overlap": 0,
+      "dictionary_check": {
+        "columns_missing_from_data": [
+          "NFLAG_MICRO_CASH"
+        ],
+        "columns_undocumented": [],
+        "dictionary_table": "previous_application.csv",
+        "known_name_aliases_applied": [],
+        "normalized_trailing_whitespace": [
+          "SK_ID_PREV"
+        ]
+      },
+      "duplicate_column_names": [],
+      "file": "previous_application.csv",
+      "foreign_key_checks": {
+        "SK_ID_CURR": {}
+      },
+      "key_check": {
+        "blank_key_rows": 0,
+        "candidate_key": "SK_ID_PREV",
+        "duplicate_non_null_rows": 0,
+        "non_null_distinct_values": 1670214
+      },
+      "marker_cells_by_column": {
+        "CODE_REJECT_REASON": {
+          "XAP": 1353093,
+          "XNA": 5244
+        },
+        "NAME_CASH_LOAN_PURPOSE": {
+          "XAP": 922661,
+          "XNA": 677918
+        },
+        "NAME_CLIENT_TYPE": {
+          "XNA": 1941
+        },
+        "NAME_CONTRACT_TYPE": {
+          "XNA": 346
+        },
+        "NAME_GOODS_CATEGORY": {
+          "XNA": 950809
+        },
+        "NAME_PAYMENT_TYPE": {
+          "XNA": 627384
+        },
+        "NAME_PORTFOLIO": {
+          "XNA": 372230
+        },
+        "NAME_PRODUCT_TYPE": {
+          "XNA": 1063666
+        },
+        "NAME_SELLER_INDUSTRY": {
+          "XNA": 855720
+        },
+        "NAME_YIELD_GROUP": {
+          "XNA": 517215
+        }
+      },
+      "relative_time_ranges": {
+        "DAYS_DECISION": {
+          "max": -1.0,
+          "min": -2922.0
+        },
+        "DAYS_FIRST_DRAWING": {
+          "max": 365243.0,
+          "min": -2922.0
+        },
+        "DAYS_FIRST_DUE": {
+          "max": 365243.0,
+          "min": -2892.0
+        },
+        "DAYS_LAST_DUE": {
+          "max": 365243.0,
+          "min": -2889.0
+        },
+        "DAYS_LAST_DUE_1ST_VERSION": {
+          "max": 365243.0,
+          "min": -2801.0
+        },
+        "DAYS_TERMINATION": {
+          "max": 365243.0,
+          "min": -2874.0
+        }
+      },
+      "rows": 1670214,
+      "target_counts": null
+    },
+    {
+      "blank_cells_by_column": {},
+      "bytes": 375592889,
+      "columns": [
+        "SK_ID_BUREAU",
+        "MONTHS_BALANCE",
+        "STATUS"
+      ],
+      "cross_application_id_overlap": 0,
+      "dictionary_check": {
+        "columns_missing_from_data": [],
+        "columns_undocumented": [],
+        "dictionary_table": "bureau_balance.csv",
+        "known_name_aliases_applied": [
+          {
+            "dictionary_name": "SK_BUREAU_ID",
+            "file_name": "SK_ID_BUREAU"
+          }
+        ],
+        "normalized_trailing_whitespace": []
+      },
+      "duplicate_column_names": [],
+      "file": "bureau_balance.csv",
+      "foreign_key_checks": {
+        "SK_ID_BUREAU": {
+          "unmatched": 3120184
+        }
+      },
+      "key_check": null,
+      "marker_cells_by_column": {},
+      "relative_time_ranges": {
+        "MONTHS_BALANCE": {
+          "max": 0.0,
+          "min": -96.0
+        }
+      },
+      "rows": 27299925,
+      "target_counts": null
+    },
+    {
+      "blank_cells_by_column": {
+        "CNT_INSTALMENT": 26071,
+        "CNT_INSTALMENT_FUTURE": 26087
+      },
+      "bytes": 392703158,
+      "columns": [
+        "SK_ID_PREV",
+        "SK_ID_CURR",
+        "MONTHS_BALANCE",
+        "CNT_INSTALMENT",
+        "CNT_INSTALMENT_FUTURE",
+        "NAME_CONTRACT_STATUS",
+        "SK_DPD",
+        "SK_DPD_DEF"
+      ],
+      "cross_application_id_overlap": 0,
+      "dictionary_check": {
+        "columns_missing_from_data": [],
+        "columns_undocumented": [],
+        "dictionary_table": "POS_CASH_balance.csv",
+        "known_name_aliases_applied": [],
+        "normalized_trailing_whitespace": [
+          "SK_ID_PREV"
+        ]
+      },
+      "duplicate_column_names": [],
+      "file": "POS_CASH_balance.csv",
+      "foreign_key_checks": {
+        "SK_ID_CURR": {},
+        "SK_ID_PREV": {
+          "unmatched": 340561
+        }
+      },
+      "key_check": null,
+      "marker_cells_by_column": {
+        "NAME_CONTRACT_STATUS": {
+          "XNA": 2
+        }
+      },
+      "relative_time_ranges": {
+        "MONTHS_BALANCE": {
+          "max": -1.0,
+          "min": -96.0
+        }
+      },
+      "rows": 10001358,
+      "target_counts": null
+    },
+    {
+      "blank_cells_by_column": {
+        "AMT_DRAWINGS_ATM_CURRENT": 749816,
+        "AMT_DRAWINGS_OTHER_CURRENT": 749816,
+        "AMT_DRAWINGS_POS_CURRENT": 749816,
+        "AMT_INST_MIN_REGULARITY": 305236,
+        "AMT_PAYMENT_CURRENT": 767988,
+        "CNT_DRAWINGS_ATM_CURRENT": 749816,
+        "CNT_DRAWINGS_OTHER_CURRENT": 749816,
+        "CNT_DRAWINGS_POS_CURRENT": 749816,
+        "CNT_INSTALMENT_MATURE_CUM": 305236
+      },
+      "bytes": 424582605,
+      "columns": [
+        "SK_ID_PREV",
+        "SK_ID_CURR",
+        "MONTHS_BALANCE",
+        "AMT_BALANCE",
+        "AMT_CREDIT_LIMIT_ACTUAL",
+        "AMT_DRAWINGS_ATM_CURRENT",
+        "AMT_DRAWINGS_CURRENT",
+        "AMT_DRAWINGS_OTHER_CURRENT",
+        "AMT_DRAWINGS_POS_CURRENT",
+        "AMT_INST_MIN_REGULARITY",
+        "AMT_PAYMENT_CURRENT",
+        "AMT_PAYMENT_TOTAL_CURRENT",
+        "AMT_RECEIVABLE_PRINCIPAL",
+        "AMT_RECIVABLE",
+        "AMT_TOTAL_RECEIVABLE",
+        "CNT_DRAWINGS_ATM_CURRENT",
+        "CNT_DRAWINGS_CURRENT",
+        "CNT_DRAWINGS_OTHER_CURRENT",
+        "CNT_DRAWINGS_POS_CURRENT",
+        "CNT_INSTALMENT_MATURE_CUM",
+        "NAME_CONTRACT_STATUS",
+        "SK_DPD",
+        "SK_DPD_DEF"
+      ],
+      "cross_application_id_overlap": 0,
+      "dictionary_check": {
+        "columns_missing_from_data": [],
+        "columns_undocumented": [],
+        "dictionary_table": "credit_card_balance.csv",
+        "known_name_aliases_applied": [],
+        "normalized_trailing_whitespace": [
+          "SK_ID_PREV"
+        ]
+      },
+      "duplicate_column_names": [],
+      "file": "credit_card_balance.csv",
+      "foreign_key_checks": {
+        "SK_ID_CURR": {},
+        "SK_ID_PREV": {
+          "unmatched": 1082816
+        }
+      },
+      "key_check": null,
+      "marker_cells_by_column": {},
+      "relative_time_ranges": {
+        "MONTHS_BALANCE": {
+          "max": -1.0,
+          "min": -96.0
+        }
+      },
+      "rows": 3840312,
+      "target_counts": null
+    },
+    {
+      "blank_cells_by_column": {
+        "AMT_PAYMENT": 2905,
+        "DAYS_ENTRY_PAYMENT": 2905
+      },
+      "bytes": 723118349,
+      "columns": [
+        "SK_ID_PREV",
+        "SK_ID_CURR",
+        "NUM_INSTALMENT_VERSION",
+        "NUM_INSTALMENT_NUMBER",
+        "DAYS_INSTALMENT",
+        "DAYS_ENTRY_PAYMENT",
+        "AMT_INSTALMENT",
+        "AMT_PAYMENT"
+      ],
+      "cross_application_id_overlap": 0,
+      "dictionary_check": {
+        "columns_missing_from_data": [],
+        "columns_undocumented": [],
+        "dictionary_table": "installments_payments.csv",
+        "known_name_aliases_applied": [],
+        "normalized_trailing_whitespace": [
+          "SK_ID_PREV"
+        ]
+      },
+      "duplicate_column_names": [],
+      "file": "installments_payments.csv",
+      "foreign_key_checks": {
+        "SK_ID_CURR": {},
+        "SK_ID_PREV": {
+          "unmatched": 1250826
+        }
+      },
+      "key_check": null,
+      "marker_cells_by_column": {},
+      "relative_time_ranges": {
+        "DAYS_ENTRY_PAYMENT": {
+          "max": -1.0,
+          "min": -4921.0
+        },
+        "DAYS_INSTALMENT": {
+          "max": -1.0,
+          "min": -2922.0
+        }
+      },
+      "rows": 13605401,
+      "target_counts": null
+    },
+    {
+      "blank_cells_by_column": {
+        "Special": 133
+      },
+      "bytes": 37383,
+      "columns": [
+        "",
+        "Table",
+        "Row",
+        "Description",
+        "Special"
+      ],
+      "cross_application_id_overlap": 0,
+      "dictionary_check": null,
+      "duplicate_column_names": [],
+      "file": "HomeCredit_columns_description.csv",
+      "foreign_key_checks": {},
+      "key_check": null,
+      "marker_cells_by_column": {},
+      "relative_time_ranges": {},
+      "rows": 219,
+      "target_counts": null
+    },
+    {
+      "blank_cells_by_column": {},
+      "bytes": 536202,
+      "columns": [
+        "SK_ID_CURR",
+        "TARGET"
+      ],
+      "cross_application_id_overlap": 0,
+      "dictionary_check": null,
+      "duplicate_column_names": [],
+      "file": "sample_submission.csv",
+      "foreign_key_checks": {},
+      "key_check": null,
+      "marker_cells_by_column": {},
+      "relative_time_ranges": {},
+      "rows": 48744,
+      "target_counts": {
+        "0.5": 48744
+      }
+    }
+  ],
+  "limitations": [
+    "Blank cells are counted separately from categorical marker values; marker counts are not automatically treated as missing.",
+    "Only documented candidate single-column keys and declared foreign keys are checked; monthly/payment row-grain duplicates need task-specific rules.",
+    "Relative day/month ranges do not prove when a field was available; inspect the dictionary and event semantics before feature approval.",
+    "This script does not decide whether use or publication is allowed by Kaggle competition rules."
+  ],
+  "missing_files": [],
+  "parent_id_counts": {
+    "application_ids": 356255,
+    "bureau_ids": 1716428,
+    "previous_application_ids": 1670214
+  }
+}
